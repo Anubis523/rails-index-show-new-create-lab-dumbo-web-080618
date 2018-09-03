@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  resources :coupons, only: [:index, :new, :create] 
+  get '/coupons/new', to: 'coupons#new'
+  post '/coupons/:id', to: 'coupons#create'
+  get '/coupons/:id', to: 'coupons#show', as: 'coupon'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

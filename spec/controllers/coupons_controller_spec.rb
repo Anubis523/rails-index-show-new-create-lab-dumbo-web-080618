@@ -10,7 +10,7 @@ describe CouponsController do
         }.to change(Coupon,:count).by(1)
       end
       
-      it "redirects to the new coupon" do
+      it "redirects to the new coupon" do CouponsController
         post :create, { :coupon => { :coupon_code => "ASD123", :store => "Dean and Deluca" } }
         expect(response).to redirect_to Coupon.last
       end
